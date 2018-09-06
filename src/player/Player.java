@@ -1,40 +1,52 @@
 package player;
 
+
+import javafx.scene.control.Label;
+
 public class Player {
-    int pointsParClics = 1;
-    int reductioinCout = 0;
-    int nbClicsAuto = 0;
-    int points = 0;
 
-    public int getPoints() {
-        return points;
+    private Label pointsParClics;
+    private Label reductioinCout;
+    private Label nbClicsAuto;
+    private Label points;
+
+    public Player() {
+        this.pointsParClics = new Label("1");
+        this.reductioinCout = new Label("0");
+        this.nbClicsAuto = new Label("0");
+        this.points = new Label("0");
     }
 
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    public int getPointsParClics() {
+    public Label getPointsParClics() {
         return pointsParClics;
     }
 
-    public void setPointsParClics(int pointsParClics) {
+    public void setPointsParClics(Label pointsParClics) {
         this.pointsParClics = pointsParClics;
     }
 
-    public int getReductioinCout() {
+    public Label getReductioinCout() {
         return reductioinCout;
     }
 
-    public void setReductioinCout(int reductioinCout) {
+    public void setReductioinCout(Label reductioinCout) {
         this.reductioinCout = reductioinCout;
     }
 
-    public int getNbClicsAuto() {
+    public Label getNbClicsAuto() {
         return nbClicsAuto;
     }
 
-    public void setNbClicsAuto(int nbClicsAuto) {
+    public void setNbClicsAuto(Label nbClicsAuto) {
         this.nbClicsAuto = nbClicsAuto;
     }
+
+    public Label getPoints() {
+        return points;
+    }
+
+    public void setPoints(Label points) {
+        this.points = points;
+    }
+
 }
