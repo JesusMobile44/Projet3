@@ -19,16 +19,8 @@ public class AutoClics extends Upgrade{
             if (Integer.parseInt(player.getPoints().getText())>=Integer.parseInt(labelCout.getText())){
                 player.getPoints().setText(String.valueOf(Integer.parseInt(player.getPoints().getText())-Integer.parseInt(labelCout.getText())));
                 labelCout.setText(String.valueOf(Integer.parseInt(labelCout.getText())*2));
-                if (level.equals("1")){
-                    Timeline timeline = new Timeline(
-                            new KeyFrame(Duration.millis(5000), event1 ->{
-                                player.getPoints().setText(String.valueOf(Integer.parseInt(player.getPoints().getText())));
-                            }));
-                    timeline.setCycleCount(Timeline.INDEFINITE);
-                    timeline.play();
-                }
                 level.setText(String.valueOf(Integer.parseInt(level.getText())+1));
-
+                player.getNbClicsAuto().setText(String.valueOf(Integer.parseInt(player.getNbClicsAuto().getText())+1));
             }
         });
     }

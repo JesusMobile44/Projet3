@@ -1,11 +1,14 @@
 package main;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import player.*;
 import upgrade.AutoClics;
 import upgrade.PlusClics;
@@ -35,13 +38,13 @@ public class Main extends Application {
         listeUpgrade.add(upgrade4);
         listeUpgrade.add(upgrade5);
         */
+
         texteClics.setScaleY(3);
         texteClics.setScaleX(2);
         player.getPoints().setScaleY(3);
         player.getPoints().setScaleY(2);
         button.setScaleX(4);
         button.setScaleY(3);
-
 
         player.getPoints().setTranslateY(50);
         player.getPoints().setTranslateX(300);
@@ -67,6 +70,14 @@ public class Main extends Application {
             listeUpgrade.get(i).getDescription().setScaleY(2);
             listeUpgrade.get(i).getDescription().setScaleX(2);*/
         }
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(1000), event1 ->{
+                    player.getPoints().setText(String.valueOf(Integer.parseInt(player.getPoints().getText())+Integer.parseInt(player.getNbClicsAuto().getText())));
+                }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
         //Group upgrade = new Group(upgrade1,upgrade2,upgrade3,upgrade4,upgrade5);
         Group group1 = new Group(upgrade1.getButton(),upgrade1.getLabelCout(),upgrade1.getDescription());
         Group group2 = new Group(upgrade2.getButton(),upgrade2.getLabelCout(),upgrade2.getDescription());
